@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=0.1
+Type=Application
+Name=Maemopaedia
+Exec=/usr/bin/maemopaedia
+Icon=maemopaedia
