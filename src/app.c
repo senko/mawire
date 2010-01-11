@@ -8,10 +8,13 @@
 static void
 settings_cb (GtkWidget *widget, GtkWidget *window)
 {
-  gchar *db_fname = show_filename_chooser (window);
+  gchar *db_fname = show_filename_chooser (window, DEFAULT_DATABASE_FOLDER);
 
   if (db_fname)
-    db_open (db_fname);
+    {
+      db_open (db_fname);
+      save_dbname_to_gconf (db_fname);
+    }
 
   g_free (db_fname);
 }
@@ -53,6 +56,7 @@ main (int argc, char **argv)
 {
   HildonProgram *program;
   GtkWidget *window;
+  gchar *db_fname;
 
   hildon_gtk_init (&argc, &argv);
 
@@ -60,12 +64,24 @@ main (int argc, char **argv)
 
   program = hildon_program_get_instance ();
 
-  db_open (DEFAULT_DATABASE_FILE);
-
   window = show_main_window (G_CALLBACK (settings_cb),
       G_CALLBACK (about_cb), G_CALLBACK (search_cb),
       G_CALLBACK (random_cb));
+
   hildon_program_add_window (program, HILDON_WINDOW (window));
+
+  db_fname = get_dbname_from_gconf ();
+  if (!db_fname)
+    {
+      db_fname = show_filename_chooser (window, DEFAULT_DATABASE_FOLDER);
+
+      /* TODO: show a nice error message here before exiting. */
+      if (!db_fname)
+          return 0;
+    }
+
+  db_open (db_fname);
+  g_free (db_fname);
 
   gtk_main ();
   return 0;

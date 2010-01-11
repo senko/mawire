@@ -3,7 +3,7 @@
 
 #include <glib.h>
 
-#define DEFAULT_DATABASE_FILE "/home/user/maemopaedia-huge.db"
+#define DEFAULT_DATABASE_FOLDER "/opt/maemopaedia/data"
 
 void db_close (void);
 gboolean db_open (const gchar *fname);

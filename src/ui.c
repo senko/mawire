@@ -20,13 +20,16 @@ append_menu_button (GtkWidget *menu, const gchar *label)
 }
 
 gchar *
-show_filename_chooser (GtkWidget *window)
+show_filename_chooser (GtkWidget *window, gchar *folder)
 {
   GtkWidget *dialog;
   gchar *result = NULL;
 
   dialog = hildon_file_chooser_dialog_new (GTK_WINDOW (window),
       GTK_FILE_CHOOSER_ACTION_OPEN);
+
+  if (folder)
+      gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (dialog), folder);
 
   if (gtk_dialog_run (GTK_DIALOG (dialog)) == GTK_RESPONSE_OK)
     {
