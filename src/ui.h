@@ -5,7 +5,8 @@
 
 #define MAIN_WINDOW_IMAGE "/home/user/maemopaedia.png"
 
-GtkWidget *show_main_window (GCallback settings_cb, GCallback about_cb,
+GtkWidget *show_main_window (GCallback installed_db_cb,
+    GCallback custom_db_cb, GCallback about_cb,
     GCallback search_clicked_cb, GCallback random_clicked_cb);
 GtkWidget *show_results_window (gchar *query, GList *results,
   GCallback selected_cb);

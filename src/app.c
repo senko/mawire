@@ -6,9 +6,9 @@
 #include "ui.h"
 
 static void
-settings_cb (GtkWidget *widget, GtkWidget *window)
+choose_db (GtkWidget *window, gchar *folder)
 {
-  gchar *db_fname = show_filename_chooser (window, DEFAULT_DATABASE_FOLDER);
+  gchar *db_fname = show_filename_chooser (window, folder);
 
   if (db_fname)
     {
@@ -17,6 +17,18 @@ settings_cb (GtkWidget *widget, GtkWidget *window)
     }
 
   g_free (db_fname);
+}
+
+static void
+installed_db_cb (GtkWidget *widget, GtkWidget *window)
+{
+  choose_db (window, DEFAULT_DATABASE_FOLDER);
+}
+
+static void
+custom_db_cb (GtkWidget *widget, GtkWidget *window)
+{
+  choose_db (window, NULL);
 }
 
 static void
@@ -64,9 +76,9 @@ main (int argc, char **argv)
 
   program = hildon_program_get_instance ();
 
-  window = show_main_window (G_CALLBACK (settings_cb),
-      G_CALLBACK (about_cb), G_CALLBACK (search_cb),
-      G_CALLBACK (random_cb));
+  window = show_main_window (G_CALLBACK (installed_db_cb),
+      G_CALLBACK (custom_db_cb), G_CALLBACK (about_cb),
+      G_CALLBACK (search_cb), G_CALLBACK (random_cb));
 
   hildon_program_add_window (program, HILDON_WINDOW (window));
 

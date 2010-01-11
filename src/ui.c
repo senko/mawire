@@ -250,20 +250,24 @@ show_article_window (gchar *title, gchar *text)
 }
 
 static GtkWidget *
-create_app_menu (GtkWidget *win, GCallback settings_cb,
-    GCallback about_cb)
+create_app_menu (GtkWidget *win, GCallback installed_db_cb,
+    GCallback custom_db_cb, GCallback about_cb)
 {
   GtkWidget *menu;
-  GtkWidget *settings_btn;
+  GtkWidget *use_installed_btn;
+  GtkWidget *use_custom_btn;
   GtkWidget *about_btn;
 
   menu = hildon_app_menu_new ();
 
-  settings_btn = append_menu_button (menu, "Settings");
+  use_installed_btn = append_menu_button (menu, "Use installed DB");
+  use_custom_btn = append_menu_button (menu, "Use custom DB");
   about_btn = append_menu_button (menu, "About");
 
-  g_signal_connect (G_OBJECT (settings_btn), "clicked",
-      G_CALLBACK (settings_cb), win);
+  g_signal_connect (G_OBJECT (use_installed_btn), "clicked",
+      G_CALLBACK (installed_db_cb), win);
+  g_signal_connect (G_OBJECT (use_custom_btn), "clicked",
+      G_CALLBACK (custom_db_cb), win);
   g_signal_connect (G_OBJECT (about_btn), "clicked",
       G_CALLBACK (about_cb), win);
 
@@ -373,8 +377,9 @@ show_results_window (gchar *query, GList *results,
 }
 
 GtkWidget *
-show_main_window (GCallback settings_cb, GCallback about_cb,
-    GCallback search_clicked_cb, GCallback random_clicked_cb)
+show_main_window (GCallback installed_db_cb, GCallback custom_db_cb,
+    GCallback about_cb, GCallback search_clicked_cb,
+    GCallback random_clicked_cb)
 {
   GtkWidget *window;
   GtkWidget *search_btn;
@@ -390,7 +395,8 @@ show_main_window (GCallback settings_cb, GCallback about_cb,
       G_CALLBACK (gtk_main_quit), NULL);
 
   hildon_window_set_app_menu (HILDON_WINDOW (window),
-      HILDON_APP_MENU (create_app_menu (window, settings_cb, about_cb)));
+      HILDON_APP_MENU (create_app_menu (window,
+          installed_db_cb, custom_db_cb, about_cb)));
 
   vbox = gtk_vbox_new (FALSE, 0);
   hbox = gtk_hbox_new (TRUE, 10);
