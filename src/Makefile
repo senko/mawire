@@ -1,4 +1,4 @@
-PKGS = hildon-1 hildon-fm-2 sqlite3 dbus-glib-1
+PKGS = hildon-1 hildon-fm-2 sqlite3 dbus-glib-1 gconf-2.0
 
 CC = gcc
 CFLAGS = -Wall -Werror -g -O3 $$(pkg-config --cflags $(PKGS))

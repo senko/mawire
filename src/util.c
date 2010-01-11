@@ -1,6 +1,7 @@
 #include "util.h"
 
 #include <dbus/dbus-glib.h>
+#include <gconf/gconf-client.h>
 #include <zlib.h>
 
 /* function copied from marnanel's raeddit */
@@ -80,4 +81,27 @@ uncompress_string (gpointer data, gint len)
 
   g_assert_not_reached ();
 }
+
+gchar
+*get_dbname_from_gconf (void)
+{
+  GConfClient *gc;
+  gchar *fname;
+
+  gc = gconf_client_get_default ();
+  fname = gconf_client_get_string (gc, MAEMOPAEDIA_GCONF_DB_FNAME, NULL);
+  g_object_unref (gc);
+  return fname;
+}
+
+void
+save_dbname_to_gconf (gchar *fname)
+{
+  GConfClient *gc;
+
+  gc = gconf_client_get_default ();
+  gconf_client_set_string (gc, MAEMOPAEDIA_GCONF_DB_FNAME, fname, NULL);
+  g_object_unref (gc);
+}
+
 
