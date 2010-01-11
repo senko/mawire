@@ -1,4 +1,4 @@
 #!/bin/sh
 
-LD_LIBRARY_PATH=/usr/lib/maemopaedia /usr/lib/maemopaedia/maemopaedia
+LD_LIBRARY_PATH=/opt/maemopaedia/lib /opt/maemopaedia/lib/maemopaedia
 

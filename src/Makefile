@@ -19,7 +19,6 @@ maemopaedia: $(OBJS)
 	$(CC) $(LDFLAGS) $(OBJS) -o $@
 
 install: maemopaedia
-	install -d ${DESTDIR}/usr/lib/maemopaedia
-	install maemopaedia ${DESTDIR}/usr/lib/maemopaedia
-
+	install -d ${DESTDIR}/opt/maemopaedia/lib
+	install maemopaedia ${DESTDIR}/opt/maemopaedia/lib
 
