@@ -436,4 +436,32 @@ show_main_window (GCallback installed_db_cb, GCallback custom_db_cb,
   return window;
 }
 
+void
+show_about_dialog (GtkWidget *window)
+{
+  GtkWidget *dialog;
+  GtkWidget *label;
+  GtkWidget *ca;
+
+  dialog = gtk_dialog_new ();
+  gtk_window_set_transient_for (GTK_WINDOW (dialog),
+      GTK_WINDOW (window));
+
+  gtk_window_set_title (GTK_WINDOW (dialog), "About Maemopaedia");
+
+  label = gtk_label_new (NULL);
+  gtk_label_set_justify (GTK_LABEL (label), GTK_JUSTIFY_CENTER);
+  gtk_label_set_markup (GTK_LABEL (label),
+    "<span size='x-large'>Maemopaedia 0.1</span>\n" \
+    "<i>Senko Rasic &lt;senko.rasic@collabora.co.uk&gt;</i>\n\n" \
+    "Articles by Wikipedia contributors\n" \
+    "Used under Creative Commons Attribution Share-Alike license");
+
+  ca = gtk_dialog_get_content_area (GTK_DIALOG (dialog));
+  gtk_container_add (GTK_CONTAINER (ca), label);
+  gtk_widget_show_all (ca);
+  gtk_dialog_run (GTK_DIALOG (dialog));
+  gtk_widget_destroy (dialog);
+}
+
 

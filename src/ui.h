@@ -13,6 +13,7 @@ GtkWidget *show_results_window (gchar *query, GList *results,
 GtkWidget *show_article_window (gchar *title, gchar *text);
 gchar *get_query_string (GtkWidget *window);
 gchar *show_filename_chooser (GtkWidget *window, gchar *folder);
+void show_about_dialog (GtkWidget *window);
 
 #endif
 

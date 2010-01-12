@@ -34,7 +34,7 @@ custom_db_cb (GtkWidget *widget, GtkWidget *window)
 static void
 about_cb (GtkWidget *widget, GtkWidget *window)
 {
-  // show_about_dialog ();
+  show_about_dialog (window);
 }
 
 static void
