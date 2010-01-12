@@ -213,7 +213,7 @@ show_article_window (gchar *title, gchar *text)
       NULL);
 
   pango = g_markup_printf_escaped ("<span size='xx-large'>%s</span>", title);
-  title_label = gtk_label_new (text);
+  title_label = gtk_label_new (NULL);
   gtk_label_set_markup (GTK_LABEL (title_label), pango);
   gtk_misc_set_alignment (GTK_MISC (title_label), 0.0, 0.5);
 
