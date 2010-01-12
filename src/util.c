@@ -57,6 +57,7 @@ uncompress_string (gpointer data, gint len)
       gint ret;
 
       buf = g_malloc (bufsize);
+      retlen = bufsize;
       ret = uncompress ((unsigned char *) buf, &retlen, data, len);
 
       switch (ret)
