@@ -61,6 +61,19 @@ search_cb (GtkWidget *widget, GtkWidget *window)
 static void
 random_cb (GtkWidget *widget, GtkWidget *window)
 {
+  gchar *title = NULL;
+  gchar *text = NULL;
+
+  title = db_fetch_random_title ();
+
+  if (title)
+      text = db_fetch_article (title);
+
+  if (text)
+      show_article_window (title, text);
+
+  g_free (title);
+  g_free (text);
 }
 
 int

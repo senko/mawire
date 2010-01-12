@@ -188,3 +188,34 @@ db_search (const gchar *query)
   return li;
 }
 
+gchar *
+db_fetch_random_title (void)
+{
+  gint ret;
+  sqlite3_stmt *stmt;
+  GList *li;
+  gchar *title = NULL;
+
+  DEBUG ("Picking random article");
+
+  ret = sqlite3_prepare_v2 (db_handle,
+      "SELECT title FROM articles WHERE id = " \
+          "(SELECT ABS(RANDOM()) % (SELECT MAX(id) FROM articles));",
+      -1, &stmt, NULL);
+
+  if (ret != SQLITE_OK)
+    {
+      g_warning ("%s: error preparing SQL statement: %s",
+          G_STRFUNC, sqlite3_errmsg (db_handle));
+      return NULL;
+    }
+
+  li = get_results (stmt);
+  if (li != NULL)
+      title = li->data;
+
+  g_list_free (li);
+  return title;
+}
+
+

@@ -427,8 +427,6 @@ show_main_window (GCallback installed_db_cb, GCallback custom_db_cb,
   g_signal_connect (G_OBJECT (search_btn), "clicked",
       G_CALLBACK (search_clicked_cb), window);
 
-  /* We haven't implemented Random yet, don't confuse the user. */
-  gtk_widget_set_sensitive (random_btn, FALSE);
   g_signal_connect (G_OBJECT (random_btn), "clicked",
       G_CALLBACK (random_clicked_cb), window);
 
