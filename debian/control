@@ -1,0 +1,12 @@
+Source: maemopaedia
+Section: user/network
+Priority: extra
+Maintainer: Senko Rasic <senko@senko.net>
+Build-Depends: debhelper (>= 4), libhildon1-dev, libsqlite3-dev, libdbus-glib-1-dev, libdbus-1-dev, gconf-2.0
+Standards-Version: 4
+
+Package: maemopaedia
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Offline Wikipedia reader
+  Offline Wikipedia reader
