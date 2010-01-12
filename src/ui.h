@@ -3,7 +3,7 @@
 
 #include <gtk/gtk.h>
 
-#define MAIN_WINDOW_IMAGE "/home/user/maemopaedia.png"
+#define MAIN_WINDOW_IMAGE "/usr/share/pixmaps/maemopaedia.png"
 
 GtkWidget *show_main_window (GCallback installed_db_cb,
     GCallback custom_db_cb, GCallback about_cb,
