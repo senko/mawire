@@ -1,0 +1,2 @@
+#!/bin/sh
+gconftool-2 -u /apps/maemopaedia/database
