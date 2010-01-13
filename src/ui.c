@@ -219,6 +219,7 @@ show_article_window (gchar *title, gchar *text)
 
   text_box = hildon_text_view_new ();
   gtk_text_view_set_wrap_mode (GTK_TEXT_VIEW (text_box), GTK_WRAP_WORD_CHAR);
+  g_object_set (text_box, "editable", FALSE, NULL);
   buffer = gtk_text_view_get_buffer (GTK_TEXT_VIEW (text_box));
 
   gtk_text_buffer_create_tag (buffer, "bold", "weight", PANGO_WEIGHT_BOLD,
