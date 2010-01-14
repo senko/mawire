@@ -1,7 +1,7 @@
 Source: mawire
 Section: user/education
 Priority: extra
-Maintainer: Senko Rasic <senko.rasic@collabora.co.uk>
+Maintainer: Senko Rasic <senko@senko.net>
 Build-Depends: debhelper (>= 4), libhildon1-dev, libsqlite3-dev, libdbus-glib-1-dev, libdbus-1-dev, libgconf2-dev
 Standards-Version: 4
 

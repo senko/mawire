@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# Copyright (C) 2010 Senko Rasic <senko.rasic@collabora.co.uk>
+# Copyright (C) 2010 Senko Rasic <senko@senko.net>
 #
 # Wikipedia XML dump file parser
 #
