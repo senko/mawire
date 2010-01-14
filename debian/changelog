@@ -1,3 +1,9 @@
+mawire (0.1-0) unstable; urgency=low
+
+  * First public release
+
+ -- Senko Rasic <senko@senko.net>  Thu, 14 Jan 2010 21:20:20 +0100
+
 mawire (0.0-1) unstable; urgency=low
 
   * Internal release for testing debian packaging
