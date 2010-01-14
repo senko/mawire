@@ -7,18 +7,18 @@ OBJS = app.o util.o db.o ui.o
 
 .PHONY: all clean
 
-all: maemopaedia
+all: mawire
 
 clean:
-	rm -f maemopaedia *.o
+	rm -f mawire *.o
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-maemopaedia: $(OBJS)
+mawire: $(OBJS)
 	$(CC) $(LDFLAGS) $(OBJS) -o $@
 
-install: maemopaedia
-	install -d ${DESTDIR}/opt/maemopaedia/lib
-	install maemopaedia ${DESTDIR}/opt/maemopaedia/lib
+install: mawire
+	install -d ${DESTDIR}/opt/mawire/lib
+	install mawire ${DESTDIR}/opt/mawire/lib
 

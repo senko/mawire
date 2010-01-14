@@ -85,7 +85,7 @@ main (int argc, char **argv)
 
   hildon_gtk_init (&argc, &argv);
 
-  g_set_application_name ("Maemopaedia");
+  g_set_application_name ("Mawire");
 
   program = hildon_program_get_instance ();
 

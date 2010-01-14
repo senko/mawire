@@ -90,7 +90,7 @@ gchar
   gchar *fname;
 
   gc = gconf_client_get_default ();
-  fname = gconf_client_get_string (gc, MAEMOPAEDIA_GCONF_DB_FNAME, NULL);
+  fname = gconf_client_get_string (gc, MAWIRE_GCONF_DB_FNAME, NULL);
   g_object_unref (gc);
   return fname;
 }
@@ -101,7 +101,7 @@ save_dbname_to_gconf (gchar *fname)
   GConfClient *gc;
 
   gc = gconf_client_get_default ();
-  gconf_client_set_string (gc, MAEMOPAEDIA_GCONF_DB_FNAME, fname, NULL);
+  gconf_client_set_string (gc, MAWIRE_GCONF_DB_FNAME, fname, NULL);
   g_object_unref (gc);
 }
 

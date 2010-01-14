@@ -1,4 +1,4 @@
 #!/bin/sh
 
-LD_LIBRARY_PATH=/opt/maemopaedia/lib /opt/maemopaedia/lib/maemopaedia
+LD_LIBRARY_PATH=/opt/mawire/lib /opt/mawire/lib/mawire
 

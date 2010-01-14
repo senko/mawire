@@ -9,7 +9,7 @@
 #define DEBUG(x...)
 #endif
 
-#define MAEMOPAEDIA_GCONF_DB_FNAME "/apps/maemopaedia/database"
+#define MAWIRE_GCONF_DB_FNAME "/apps/mawire/database"
 
 gboolean launch_browser (const gchar *url);
 gchar *uncompress_string (gpointer data, gint len);

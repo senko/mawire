@@ -3,7 +3,7 @@
 
 #include <glib.h>
 
-#define DEFAULT_DATABASE_FOLDER "/opt/maemopaedia/data"
+#define DEFAULT_DATABASE_FOLDER "/opt/mawire/data"
 
 void db_close (void);
 gboolean db_open (const gchar *fname);
