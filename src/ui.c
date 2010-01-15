@@ -216,6 +216,7 @@ show_article_window (gchar *title, gchar *text)
   title_label = gtk_label_new (NULL);
   gtk_label_set_markup (GTK_LABEL (title_label), pango);
   gtk_misc_set_alignment (GTK_MISC (title_label), 0.0, 0.5);
+  g_object_set (G_OBJECT (title_label), "wrap", TRUE, NULL);
 
   text_box = hildon_text_view_new ();
   gtk_text_view_set_wrap_mode (GTK_TEXT_VIEW (text_box), GTK_WRAP_WORD_CHAR);
@@ -403,6 +404,7 @@ show_main_window (GCallback installed_db_cb, GCallback custom_db_cb,
   hbox = gtk_hbox_new (TRUE, 10);
 
   label = gtk_label_new ("Mawire, the lightweight offline Wikipedia reader");
+  g_object_set (G_OBJECT (label), "wrap", TRUE, NULL);
 
   image = gtk_image_new_from_file (MAIN_WINDOW_IMAGE);
 
@@ -431,7 +433,6 @@ show_main_window (GCallback installed_db_cb, GCallback custom_db_cb,
   g_signal_connect (G_OBJECT (random_btn), "clicked",
       G_CALLBACK (random_clicked_cb), window);
 
-  gtk_widget_show_all (GTK_WIDGET (window));
   return window;
 }
 
@@ -455,6 +456,7 @@ show_about_dialog (GtkWidget *window)
     "<i>Senko Rasic &lt;senko@senko.net&gt;</i>\n\n" \
     "Articles by Wikipedia contributors\n" \
     "Used under Creative Commons Attribution Share-Alike license");
+  g_object_set (G_OBJECT (label), "wrap", TRUE, NULL);
 
   ca = gtk_dialog_get_content_area (GTK_DIALOG (dialog));
   gtk_container_add (GTK_CONTAINER (ca), label);
@@ -463,4 +465,10 @@ show_about_dialog (GtkWidget *window)
   gtk_widget_destroy (dialog);
 }
 
+void
+set_portrait_mode (GtkWidget *window, gboolean portrait)
+{
+  hildon_gtk_window_set_portrait_flags (GTK_WINDOW (window),
+      portrait ?  HILDON_PORTRAIT_MODE_REQUEST : 0);
+}
 

@@ -76,6 +76,15 @@ random_cb (GtkWidget *widget, GtkWidget *window)
   g_free (text);
 }
 
+static void
+slide_cb (gpointer data, gpointer user_data)
+{
+  GtkWidget *window = user_data;
+  gboolean open = GPOINTER_TO_INT (data);
+
+  set_portrait_mode (window, !open);
+}
+
 int
 main (int argc, char **argv)
 {
@@ -84,6 +93,7 @@ main (int argc, char **argv)
   gchar *db_fname;
 
   hildon_gtk_init (&argc, &argv);
+  gconf_wrapper_init ();
 
   g_set_application_name ("Mawire");
 
@@ -94,6 +104,9 @@ main (int argc, char **argv)
       G_CALLBACK (search_cb), G_CALLBACK (random_cb));
 
   hildon_program_add_window (program, HILDON_WINDOW (window));
+  set_portrait_mode (window, !keyboard_is_open ());
+  set_keyboard_slide_callback (slide_cb, window);
+  gtk_widget_show_all (GTK_WIDGET (window));
 
   db_fname = get_dbname_from_gconf ();
   if (!db_fname)
@@ -106,9 +119,13 @@ main (int argc, char **argv)
     }
 
   db_open (db_fname);
+  save_dbname_to_gconf (db_fname);
   g_free (db_fname);
 
   gtk_main ();
+
+  gconf_wrapper_dispose ();
+
   return 0;
 }
 

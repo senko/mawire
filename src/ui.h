@@ -14,6 +14,7 @@ GtkWidget *show_article_window (gchar *title, gchar *text);
 gchar *get_query_string (GtkWidget *window);
 gchar *show_filename_chooser (GtkWidget *window, gchar *folder);
 void show_about_dialog (GtkWidget *window);
+void set_portrait_mode (GtkWidget *window, gboolean portrait);
 
 #endif
 
