@@ -403,7 +403,7 @@ show_main_window (GCallback installed_db_cb, GCallback custom_db_cb,
   vbox = gtk_vbox_new (FALSE, 0);
   hbox = gtk_hbox_new (TRUE, 10);
 
-  label = gtk_label_new ("Mawire, the lightweight offline Wikipedia reader");
+  label = gtk_label_new ("Mawire, the offline Wikipedia reader");
   g_object_set (G_OBJECT (label), "wrap", TRUE, NULL);
 
   image = gtk_image_new_from_file (MAIN_WINDOW_IMAGE);
