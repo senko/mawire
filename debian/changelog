@@ -1,3 +1,12 @@
+mawire (0.2-0) unstable; urgency=low
+
+  * Added support for potrait mode.
+  * Save default database location if selected at startup.
+  * Use mmc instead of install folder when prompting user
+    to select initial database location.
+
+ -- Senko Rasic <senko@senko.net>  Sat, 16 Jan 2010 01:14:08 +0100
+
 mawire (0.1-0) unstable; urgency=low
 
   * First public release

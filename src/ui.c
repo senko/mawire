@@ -452,7 +452,7 @@ show_about_dialog (GtkWidget *window)
   label = gtk_label_new (NULL);
   gtk_label_set_justify (GTK_LABEL (label), GTK_JUSTIFY_CENTER);
   gtk_label_set_markup (GTK_LABEL (label),
-    "<span size='x-large'>Mawire 0.1</span>\n" \
+    "<span size='x-large'>Mawire 0.2</span>\n" \
     "<i>Senko Rasic &lt;senko@senko.net&gt;</i>\n\n" \
     "Articles by Wikipedia contributors\n" \
     "Used under Creative Commons Attribution Share-Alike license");
