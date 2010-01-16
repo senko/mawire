@@ -111,7 +111,7 @@ main (int argc, char **argv)
   db_fname = get_dbname_from_gconf ();
   if (!db_fname)
     {
-      db_fname = show_filename_chooser (window, DEFAULT_DATABASE_FOLDER);
+      db_fname = show_filename_chooser (window, NULL);
 
       /* TODO: show a nice error message here before exiting. */
       if (!db_fname)
